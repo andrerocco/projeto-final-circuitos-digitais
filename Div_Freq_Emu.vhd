@@ -14,7 +14,8 @@ entity Div_Freq_Emu is
 end Div_Freq_Emu;
 
 architecture divisor of Div_Freq_Emu is
-	signal cont: std_logic_vector(11 downto 0); -- Registra valor da contagem
+	signal cont: std_logic_vector(11 downto 0) := x"000"; -- Registra valor da contagem 
+	-- O sinal de cont foi editado para começar em 0
 	
 	begin
 		P1: process(clk, reset, cont)
