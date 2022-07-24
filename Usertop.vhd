@@ -16,6 +16,8 @@ end usertop;
 
 architecture rtl of usertop is
     signal R1, E1, E2, E3, E4, E5, E6, end_game, end_sequence, end_round, enter_left, enter_right, enter, reset: std_logic;
+    -- Sem uso
+    signal end_left, end_right: std_logic;
     
     -- Declaração dos componentes
     component datapath is port(
@@ -51,18 +53,18 @@ architecture rtl of usertop is
 
 begin
     
-    BTNPLAY: ButtonPlay port map(KEY(1), KEY(0), 
-                                 reset, CLK,
+    BTNPLAY: ButtonPlay port map(KEY(3), KEY(2), 
+                                 E2, CLK,
                                  enter_left, enter_right);
     
-    BTNSYNC: ButtonSync port map(KEY(3), KEY(2), CLK,
+    BTNSYNC: ButtonSync port map(KEY(1), KEY(0), CLK,
                                  enter, reset);
     
     BLOCODATAPATH: datapath port map(SW,
                                      CLK,
-                                     enter_right, enter_left,
+                                     enter_left, enter_right,
                                      R1, E1, E2, E3, E4, E5, E6,
-                                     end_game, end_sequence, end_round, enter_right, enter_left, -- VER O END LEFT E END RIGHT
+                                     end_game, end_sequence, end_round, end_left, end_right, -- VER O END LEFT E END RIGHT
                                      HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0,
                                      LEDR
                                      );
