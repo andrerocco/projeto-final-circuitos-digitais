@@ -109,7 +109,7 @@ begin
                 E6 <= '0';
             
             when Result =>
-                if enter = '1' then
+                if (enter = '1') then
                     ProximoEstado <= Init; -- Se enter for pressionado, vai para o Init
                 else
                     ProximoEstado <= Result; -- Se enter não for pressionado, fica no Result
