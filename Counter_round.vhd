@@ -23,6 +23,7 @@ begin
     begin
     if (Set = '1') then -- O Set define o valor do contador para 15 decimal de forma assíncrona
        counter <= "1111";
+       tc_eq0 <= '0';
     end if;
     if (CLK'event and CLK = '1') then 
       if (E = '1') then -- Se o enable estiver ativado, funciona de forma síncrona
@@ -31,6 +32,7 @@ begin
           tc_eq0 <= '1'; -- Ativa o sinal que simboliza que o valor atual é menor que 1
         else
           counter <= counter - "0001"; -- Diminui a contagem em 1
+          tc_eq0 <= '0';
         end if;
       end if;
     end if;
