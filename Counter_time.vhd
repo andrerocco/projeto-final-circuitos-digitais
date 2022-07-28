@@ -24,14 +24,16 @@ begin
     begin
     if (Set = '1') then -- O Set define o valor do contador para 99 decimal de forma assíncrona
        counter <= "01100011";
+       tc_lt1 <= '0';
     end if;
     if (CLK'event and CLK = '1') then 
       if (E = '1') then -- Se o enable estiver ativado, funciona de forma síncrona
         if (counter < "00000001") then -- Se o contador atingir o 0, ficará parado em 0 até que Set seja ativado (pelo bloco de controle)
-          counter <= counter + LOAD;
+          counter <= "00000000";
           tc_lt1 <= '1'; -- Ativa o sinal que simboliza que o valor atual é menor que 1
         else
           counter <= counter + LOAD; -- Diminui a contagem com o valor de LOAD(STEP)
+          tc_lt1 <= '0';
         end if;
       end if;
     end if;
