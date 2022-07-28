@@ -362,7 +362,7 @@ comparador_LEFT: Comparador port map(play_left(7 downto 0), play_left(15 downto 
 -- Lógicas combinacionais
 
 end_game <= end_time_left or end_time_right;
-pisca <= Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz; -- CONFERIR SE FUNCIONA
+pisca <= Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz & Sim_1Hz; -- CONFERIR SE FUNCIONA ??
 
 
 
